@@ -6,11 +6,16 @@ import { UserType } from './user-type-entity';
 
 @Injectable()
 export class UserTypeService {
-    constructor(@InjectRepository(UserType) private userTypeRepository: Repository<UserType>){}
+  constructor(
+    @InjectRepository(UserType)
+    private userTypeRepository: Repository<UserType>,
+  ) {}
 
-    create(createUserTypeDto : CreateUserTypeDto){
+  create(createUserTypeDto: CreateUserTypeDto) {
+    return this.userTypeRepository.save(createUserTypeDto);
+  }
 
-       return this.userTypeRepository.save(createUserTypeDto);
-
-    }
+  find(){
+      return this.userTypeRepository.find()
+  }
 }

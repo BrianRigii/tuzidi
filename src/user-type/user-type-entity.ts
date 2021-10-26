@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, CreateDateColumn, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Entity } from "typeorm/decorator/entity/Entity";
 
 @Entity()
@@ -9,6 +9,8 @@ export class UserType{
 
     @Column()
     name : string
+
+   
 
     @CreateDateColumn()
     created_at : Date
