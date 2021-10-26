@@ -8,6 +8,7 @@ import { UserTypeService } from './user-type/user-type.service';
 import { UserModule } from './user/user.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { Vehicle } from './vehicle/vehicle.entity';
+import { User } from './user/user';
 
 @Module({
   imports: [
@@ -18,7 +19,7 @@ import { Vehicle } from './vehicle/vehicle.entity';
       username: 'brian',
       password: 'root',
       database: 'tuzidi',
-      entities: [UserType, Vehicle],
+      entities: [UserType, Vehicle, User],
       synchronize: true,
     }),
     UserTypeModule,

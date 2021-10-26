@@ -1,4 +1,5 @@
-import { Column, Entity, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { User } from "src/user/user";
+import { Column, Entity, ManyToOne, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
 export class Vehicle{
@@ -13,6 +14,9 @@ export class Vehicle{
 
     @Column()
     model : string
+
+    @ManyToOne(()=> User, user=> user.id)
+    drivers: User[]
 
   
 

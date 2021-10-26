@@ -17,6 +17,10 @@ export class User {
     @JoinColumn()
     userTypeId: number
 
+    @OneToMany(()=> Vehicle, vehicle=> vehicle.id)
+    vehicles: Vehicle[]
+
+
    //vehicle 
    // usertype
 
