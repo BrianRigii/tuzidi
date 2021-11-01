@@ -8,7 +8,7 @@ import { UserTypeService } from './user-type/user-type.service';
 import { UserModule } from './user/user.module';
 import { VehicleModule } from './vehicle/vehicle.module';
 import { Vehicle } from './vehicle/vehicle.entity';
-import { User } from './user/user';
+import { User } from './user/user.entity';
 
 @Module({
   imports: [

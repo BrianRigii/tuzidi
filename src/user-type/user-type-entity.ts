@@ -10,8 +10,6 @@ export class UserType{
     @Column()
     name : string
 
-   
-
     @CreateDateColumn()
     created_at : Date
 
