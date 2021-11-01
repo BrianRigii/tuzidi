@@ -17,10 +17,7 @@ export class User {
     @Column()
     password : string 
 
-    @BeforeInsert()
-    async hashPassword(){
-        this.password = await bcrypt.hash( this.password, 10);
-    }
+  
 
     @OneToOne(type=> UserType, userType => userType.id )
     @JoinColumn()
@@ -28,6 +25,12 @@ export class User {
 
     @OneToMany(()=> Vehicle, vehicle=> vehicle.id)
     vehicles: Vehicle[]
+
+    @BeforeInsert()
+    async hashPassword(){
+        console.log('hashing');
+        this.password = await bcrypt.hash(this.password, 10);
+    }
 
 
   
