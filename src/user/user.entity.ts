@@ -1,7 +1,8 @@
 import { UserType } from "src/user-type/user-type-entity";
 import { Vehicle } from "src/vehicle/vehicle.entity";
-import { Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
+import { BeforeInsert, Column, Entity, JoinColumn, OneToMany, OneToOne, PrimaryGeneratedColumn } from "typeorm";
 
+import * as bcrypt from 'bcrypt';
 @Entity()
 export class User {
     @PrimaryGeneratedColumn()
@@ -13,15 +14,22 @@ export class User {
     @Column()
     email: string
 
+    @Column()
+    password : string 
+
+    @BeforeInsert()
+    async hashPassword(){
+        this.password = await bcrypt.hash( this.password, 10);
+    }
+
     @OneToOne(type=> UserType, userType => userType.id )
     @JoinColumn()
-    userTypeId: number
+    userType: number
 
     @OneToMany(()=> Vehicle, vehicle=> vehicle.id)
     vehicles: Vehicle[]
 
 
-   //vehicle 
-   // usertype
+  
 
 }

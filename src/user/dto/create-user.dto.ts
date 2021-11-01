@@ -7,4 +7,6 @@ export class CreateUserDto{
     email: string
     @IsNotEmpty()
     password: string
+    
+    userType: number 
 }
